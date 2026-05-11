@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+    <rect width="128" height="128" rx="18" fill="#e7cfa8" />
+
+    <rect x="4" y="4" width="120" height="120" rx="16" fill="none" stroke="#7b4e2c" stroke-width="3" opacity="0.7" />
+
+    <g stroke="#f8e7c7" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none">
+        <path d="M64 28 V88" />
+
+        <path d="M64 40
+             C54 34 48 30 42 22" />
+
+        <path d="M64 40
+             C74 34 80 30 86 22" />
+
+        <path d="M64 52
+             C52 48 44 42 38 34" />
+
+        <path d="M64 52
+             C76 48 84 42 90 34" />
+
+        <path d="M64 66
+             C54 64 48 60 42 54" />
+
+        <path d="M64 66
+             C74 64 80 60 86 54" />
+
+        <!-- racines -->
+        <path d="M64 88
+             C54 92 48 98 44 104" />
+
+        <path d="M64 88
+             C74 92 80 98 84 104" />
+    </g>
+
+    <!-- étoiles -->
+    <g fill="#fff4dc" opacity="0.9">
+        <circle cx="42" cy="30" r="2"/>
+        <circle cx="86" cy="30" r="2"/>
+        <circle cx="64" cy="18" r="2"/>
+        <circle cx="52" cy="24" r="1.5"/>
+        <circle cx="76" cy="24" r="1.5"/>
+    </g>
+</svg>
