@@ -9,9 +9,9 @@ import { Component } from '@angular/core';
 export class LoginComponent {onSubmit(event: Event, pseudo: string, password: string): void {
     event.preventDefault();
 
-    console.log('[auth] tentative de connexion', {
+    console.log('Inputs login', {
       pseudo,
-      passwordLength: password.length,
+      password,
     });
   }
 }
