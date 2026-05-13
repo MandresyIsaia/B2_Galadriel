@@ -1,195 +1,39 @@
-<div class="gc-root">
-  <div class="gc-frame" aria-hidden="true">
-    <div class="gc-border gc-border--outer"></div>
-    <div class="gc-border gc-border--inner"></div>
+<main class="login-page" aria-label="Connexion Gondor Chic">
+  <section class="login-panel" aria-label="Identification">
+    <img class="login-logo" src="/assets/img/logo-login.svg" alt="Logo Gondor Chic" />
 
-    <svg class="gc-emblem" viewBox="0 0 120 120" role="img" aria-label="Emblème">
-      <path
-        d="M60 18
-           C45 28 40 44 46 58
-           C50 70 57 74 60 76
-           C63 74 70 70 74 58
-           C80 44 75 28 60 18 Z"
-        fill="currentColor"
-        opacity="0.32"
-      />
-      <path
-        d="M60 30
-           C55 36 54 44 57 52
-           C59 57 60 62 60 70
-           M60 32
-           C65 38 66 46 63 54"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="3"
-        stroke-linecap="round"
-        opacity="0.7"
-      />
-      <path
-        d="M60 70 V94"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="4"
-        stroke-linecap="round"
-        opacity="0.7"
-      />
-      <path
-        d="M44 96
-           C52 90 56 88 60 88
-           C64 88 68 90 76 96"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="3"
-        stroke-linecap="round"
-        opacity="0.55"
-      />
-    </svg>
+    <h1>Gondor Chic</h1>
 
-    <svg class="gc-corner gc-corner--tl" viewBox="0 0 160 160">
-      <path
-        d="M18 44 C44 18 78 18 106 34"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="4"
-        stroke-linecap="round"
-        opacity="0.45"
-      />
-      <path
-        d="M22 78 C44 54 82 52 124 66"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="3"
-        stroke-linecap="round"
-        opacity="0.35"
-      />
-      <path
-        d="M44 22 C48 40 40 58 22 72"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="3"
-        stroke-linecap="round"
-        opacity="0.35"
-      />
-    </svg>
+    <form
+      class="login-form"
+      (submit)="onSubmit($event, pseudo.value, password.value)"
+      autocomplete="off"
+    >
+      <label class="input-group" for="pseudo">
+        <span>Pseudo</span>
+        <input
+          type="text"
+          id="pseudo"
+          name="pseudo"
+          placeholder="Votre pseudo unique"
+          autocomplete="username"
+          #pseudo
+        />
+      </label>
 
-    <svg class="gc-corner gc-corner--tr" viewBox="0 0 160 160">
-      <path
-        d="M142 44 C116 18 82 18 54 34"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="4"
-        stroke-linecap="round"
-        opacity="0.45"
-      />
-      <path
-        d="M138 78 C116 54 78 52 36 66"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="3"
-        stroke-linecap="round"
-        opacity="0.35"
-      />
-      <path
-        d="M116 22 C112 40 120 58 138 72"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="3"
-        stroke-linecap="round"
-        opacity="0.35"
-      />
-    </svg>
+      <label class="input-group" for="password">
+        <span>Mot de passe</span>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Votre mot de passe secret"
+          autocomplete="current-password"
+          #password
+        />
+      </label>
 
-    <svg class="gc-corner gc-corner--bl" viewBox="0 0 160 160">
-      <path
-        d="M18 116 C44 142 78 142 106 126"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="4"
-        stroke-linecap="round"
-        opacity="0.45"
-      />
-      <path
-        d="M22 82 C44 106 82 108 124 94"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="3"
-        stroke-linecap="round"
-        opacity="0.35"
-      />
-      <path
-        d="M44 138 C48 120 40 102 22 88"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="3"
-        stroke-linecap="round"
-        opacity="0.35"
-      />
-    </svg>
-
-    <svg class="gc-corner gc-corner--br" viewBox="0 0 160 160">
-      <path
-        d="M142 116 C116 142 82 142 54 126"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="4"
-        stroke-linecap="round"
-        opacity="0.45"
-      />
-      <path
-        d="M138 82 C116 106 78 108 36 94"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="3"
-        stroke-linecap="round"
-        opacity="0.35"
-      />
-      <path
-        d="M116 138 C112 120 120 102 138 88"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="3"
-        stroke-linecap="round"
-        opacity="0.35"
-      />
-    </svg>
-  </div>
-
-  <main class="gc-content" aria-label="Accueil">
-    <section class="gc-login" aria-label="Identification">
-      <h1 class="gc-title">Gondor Chic</h1>
-
-      <form
-        class="gc-form"
-        (submit)="onSubmit($event, pseudo.value, password.value)"
-        autocomplete="off"
-      >
-        <label class="gc-field">
-          <span class="gc-label">Pseudo</span>
-          <input
-            class="gc-input"
-            type="text"
-            name="pseudo"
-            placeholder="Votre pseudo unique"
-            autocomplete="username"
-            inputmode="text"
-            #pseudo
-          />
-        </label>
-
-        <label class="gc-field">
-          <span class="gc-label">Mot de passe</span>
-          <input
-            class="gc-input"
-            type="password"
-            name="password"
-            placeholder="Votre mot de passe secret"
-            autocomplete="current-password"
-            #password
-          />
-        </label>
-
-        <button class="gc-button" type="submit">S’identifier</button>
-      </form>
-    </section>
-  </main>
-</div>
+      <button type="submit">S'identifier</button>
+    </form>
+  </section>
+</main>
