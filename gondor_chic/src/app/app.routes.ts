@@ -8,6 +8,12 @@ export const routes: Routes = [
 			import('./login/login.component').then((m) => m.LoginComponent),
 	},
 	{
+		path: 'produit',
+		title: 'Produit du jour - Gondor Chic',
+		loadComponent: () =>
+			import('./produit/produit.component').then((m) => m.ProduitComponent),
+	},
+	{
 		path: '**',
 		redirectTo: '',
 	},
