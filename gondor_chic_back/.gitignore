@@ -1,0 +1,50 @@
+# Build folders
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Rider / JetBrains
+.idea/
+
+# VS Code settings (optional)
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Environment files
+.env
+
+# SQLite database files (if testing with SQLite)
+*.db
+*.db-shm
+*.db-wal
+
+# SQL Server local files
+*.mdf
+*.ldf
+
+# NuGet packages
+*.nupkg
+
+# Publish output
+publish/
+
+# Temporary files
+tmp/
+temp/
+
+# Generated EF Core migration snapshots cache
+*.cache
+
+# Sensitive configuration backup files
+appsettings.Development.json
+appsettings.Local.json
