@@ -1,49 +1,75 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
+import { ApiService } from '../services/api.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-produit',
-  imports: [],
   templateUrl: './produit.component.html',
   styleUrl: './produit.component.css',
+  imports: [CommonModule]
 })
-export class ProduitComponent {
-  readonly produit = {
-    nom: "Pèlerine de Maillon d'Arsenic",
-    prix: 50,
-    stock: 10,
-    image: '/assets/img/produit_jour.png',
-    imageAlt: "Pèlerine de Maillon d'Arsenic",
-  };
+export class ProduitComponent implements OnInit {
 
+  produit = signal<any | null>(null);
+
+  client: any;
   quantite = 1;
+  loading = signal(true);
+
+  constructor(private api: ApiService) {}
+
+  ngOnInit(): void {
+
+    this.client = JSON.parse(localStorage.getItem('client') || '{}');
+
+    this.api.getHome(this.client.id).subscribe({
+      next: (data) => {
+
+        this.produit.set({
+          nom: data.libelleProduit,
+          prix: data.prix,
+          stock: data.quantiteStock,
+          image: data.imageLink,
+          imageAlt: data.libelleProduit
+        });
+
+        this.loading.set(false);
+      },
+      error: (err) => {
+        this.loading.set(false);
+        console.error(err);
+      }
+    });
+  }
 
   incrementer(): void {
-    if (this.quantite < this.produit.stock) {
-      this.quantite++;
-    }
+    const p = this.produit();
+    if (p && this.quantite < p.stock) this.quantite++;
   }
 
   decrementer(): void {
-    if (this.quantite > 1) {
-      this.quantite--;
-    }
+    if (this.quantite > 1) this.quantite--;
   }
 
   changerQuantite(valeur: string): void {
-    const quantite = Number.parseInt(valeur, 10);
+    const q = Number.parseInt(valeur, 10);
+    const p = this.produit();
 
-    if (Number.isNaN(quantite) || quantite < 1) {
+    if (!p) return;
+
+    if (Number.isNaN(q) || q < 1) {
       this.quantite = 1;
       return;
     }
 
-    this.quantite = Math.min(quantite, this.produit.stock);
+    this.quantite = Math.min(q, p.stock);
   }
 
   ajouterAuPanier(): void {
-    console.log('Produit ajouté au panier', {
-      produit: this.produit.nom,
-      quantite: this.quantite,
+    console.log('AJOUT PANIER', {
+      client: this.client.id,
+      produit: this.produit(),
+      quantite: this.quantite
     });
   }
 }
