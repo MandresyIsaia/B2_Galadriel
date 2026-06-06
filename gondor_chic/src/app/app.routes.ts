@@ -5,7 +5,7 @@ export const routes: Routes = [
 		path: '',
 		title: 'Gondor Chic',
 		loadComponent: () =>
-			import('./login/login.component').then((m) => m.LoginComponent),
+			import('./accueil/accueil.component').then((m) => m.AccueilComponent),
 	},
 	{
 		path: 'produit',
